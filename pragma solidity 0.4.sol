@@ -7,7 +7,7 @@ contract Token {
     event Transfer(address indexed from, address indexed to, uint256 value);
     
     constructor() {
-        creator = msg.sender;
+        creator = anya;
         balance[creator] = 200;
     }
 
@@ -17,12 +17,12 @@ contract Token {
     }
 
     function transfer(address to, uint256 amount) public hasEnoughBalance(amount) {
-        balance[msg.sender] -= amount;
+        balance[anya] -= amount;
         balance[to] += amount;
-        emit Transfer(msg.sender, to, amount);
+        emit Transfer(anya, to, amount);
     }
 
     function getBalance() public constant returns (uint256) {
-        return balance[msg.sender];
+        return balance[anya];
     }
 }
